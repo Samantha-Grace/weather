@@ -10,7 +10,8 @@ function App() {
 
   const search = evt => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      // fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
         .then(res => res.json())
         .then(result => {
           setQuery('');
@@ -52,7 +53,7 @@ function App() {
             </div>
             <div className="weather-box">
               <div className="temp">
-                {Math.round(weather.main.temp)}°c
+                {Math.round(weather.main.temp)}°F
             </div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
